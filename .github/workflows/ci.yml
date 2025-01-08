@@ -1,0 +1,101 @@
+name: "transitions"
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    paths:
+      - '.swiftlint.yml'
+      - ".github/workflows/**"
+      - "Package.swift"
+      - "Source/**"
+      - "Tests/**"
+
+jobs:
+  SwiftLint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: GitHub Action for SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --strict
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
+  iOS:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - destination: "OS=18.1,name=iPhone 16 Pro"
+            name: "iOS 18.1"
+            xcode: "Xcode_16.1"
+            runsOn: macOS-14
+          - destination: "OS=18.0,name=iPhone 16 Pro"
+            name: "iOS 18.0"
+            xcode: "Xcode_16.0"
+            runsOn: macOS-14
+          - destination: "OS=17.5,name=iPhone 15 Pro"
+            name: "iOS 17.5"
+            xcode: "Xcode_15.4"
+            runsOn: macOS-14
+          - destination: "OS=17.0.1,name=iPhone 14 Pro"
+            name: "iOS 17.0.1"
+            xcode: "Xcode_15.0"
+            runsOn: macos-13
+          - destination: "OS=16.4,name=iPhone 14 Pro"
+            name: "iOS 16.4"
+            xcode: "Xcode_14.3.1"
+            runsOn: macos-13
+    steps:
+      - uses: actions/checkout@v3
+      - name: ${{ matrix.name }}
+        run: xcodebuild test -scheme "Transitions" -destination "${{ matrix.destination }}" clean -enableCodeCoverage YES -resultBundlePath "test_output/${{ matrix.name }}.xcresult" || exit 1
+
+  spm:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: "macOS 14, SPM 6.0.2 Test"
+            xcode: "Xcode_16.1"
+            runsOn: macOS-14
+          - name: "macOS 14, SPM 6.0.0 Test"
+            xcode: "Xcode_16.0"
+            runsOn: macOS-14
+          - name: "macOS 14, SPM 5.9.0 Test"
+            xcode: "Xcode_15.0"
+            runsOn: macos-14
+          - name: "macOS 13, SPM 5.8.1 Test"
+            xcode: "Xcode_14.3.1"
+            runsOn: macos-13
+    steps:
+      - uses: actions/checkout@v3
+      - name: ${{ matrix.name }}
+        run: swift build -c release
+
+  discover-typos:
+    name: Discover Typos
+    runs-on: macOS-13
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_14.1.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v2
+      - name: Discover typos
+        run: |
+          export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.11/bin"
+          python3 -m pip install --upgrade pip
+          python3 -m pip install codespell
+          codespell --ignore-words-list="hart,inout,msdos,sur" --skip="./.build/*,./.git/*"
