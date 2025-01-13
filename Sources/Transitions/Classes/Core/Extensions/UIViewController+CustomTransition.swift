@@ -8,7 +8,7 @@ import UIKit
 // MARK: - AssociatedKeys
 
 private enum AssociatedKeys {
-    #if swift(>=5.9)
+    #if swift(>=5.10)
         nonisolated(unsafe) static var customTransitionKey = "CustomAnimationTransitionKey"
     #else
         static var customTransitionKey = "CustomAnimationTransitionKey"
