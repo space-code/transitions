@@ -17,7 +17,7 @@ jobs:
   SwiftLint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: GitHub Action for SwiftLint
         uses: norio-nomura/action-swiftlint@3.2.1
         with:
@@ -55,7 +55,7 @@ jobs:
             xcode: "Xcode_14.3.1"
             runsOn: macos-13
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: ${{ matrix.name }}
         run: xcodebuild test -scheme "transitions" -destination "${{ matrix.destination }}" clean -enableCodeCoverage YES -resultBundlePath "test_output/${{ matrix.name }}.xcresult" || exit 1
 
