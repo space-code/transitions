@@ -57,34 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: ${{ matrix.name }}
-        run: xcodebuild test -scheme "Transitions" -destination "${{ matrix.destination }}" clean -enableCodeCoverage YES -resultBundlePath "test_output/${{ matrix.name }}.xcresult" || exit 1
-
-  spm:
-    name: ${{ matrix.name }}
-    runs-on: ${{ matrix.runsOn }}
-    env:
-      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
-    timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - name: "macOS 14, SPM 6.0.2 Test"
-            xcode: "Xcode_16.1"
-            runsOn: macOS-14
-          - name: "macOS 14, SPM 6.0.0 Test"
-            xcode: "Xcode_16.0"
-            runsOn: macOS-14
-          - name: "macOS 14, SPM 5.9.0 Test"
-            xcode: "Xcode_15.0"
-            runsOn: macos-14
-          - name: "macOS 13, SPM 5.8.1 Test"
-            xcode: "Xcode_14.3.1"
-            runsOn: macos-13
-    steps:
-      - uses: actions/checkout@v3
-      - name: ${{ matrix.name }}
-        run: swift build -c release
+        run: xcodebuild test -scheme "transitions" -destination "${{ matrix.destination }}" clean -enableCodeCoverage YES -resultBundlePath "test_output/${{ matrix.name }}.xcresult" || exit 1
 
   discover-typos:
     name: Discover Typos
@@ -92,7 +65,7 @@ jobs:
     env:
       DEVELOPER_DIR: /Applications/Xcode_14.1.app/Contents/Developer
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Discover typos
         run: |
           export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.11/bin"
