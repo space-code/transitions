@@ -17,10 +17,10 @@ private enum AssociatedKeys {
 
 public extension UIViewController {
     /// A custom transition object associated with the view controller.
-    var customTransition: CustomTransition? {
+    var customTransition: CoreTransition? {
         get {
             withUnsafePointer(to: &AssociatedKeys.customTransitionKey) {
-                objc_getAssociatedObject(self, $0) as? CustomTransition
+                objc_getAssociatedObject(self, $0) as? CoreTransition
             }
         }
         set {
