@@ -17,7 +17,7 @@ jobs:
   SwiftLint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: GitHub Action for SwiftLint
         uses: norio-nomura/action-swiftlint@3.2.1
         with:
@@ -51,7 +51,7 @@ jobs:
             xcode: "Xcode_14.3.1"
             runsOn: macos-13
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: ${{ matrix.name }}
         run: xcodebuild test -scheme "transitions" -destination "${{ matrix.destination }}" clean -enableCodeCoverage YES -resultBundlePath "test_output/${{ matrix.name }}.xcresult" || exit 1
 
@@ -61,7 +61,7 @@ jobs:
     env:
       DEVELOPER_DIR: /Applications/Xcode_14.1.app/Contents/Developer
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Discover typos
         run: |
           export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.11/bin"
