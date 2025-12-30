@@ -136,6 +136,14 @@ extension CoreTransition: UIViewControllerAnimatedTransitioning {
             performDismissTransition()
         }
     }
+
+    open func interruptibleAnimator(
+        using transitionContext: any UIViewControllerContextTransitioning
+    ) -> any UIViewImplicitlyAnimating {
+        UIViewPropertyAnimator(duration: transitionDuration(using: transitionContext), dampingRatio: 1.0) {
+            self.animateTransition(using: transitionContext)
+        }
+    }
 }
 
 // MARK: UIViewControllerTransitioningDelegate
