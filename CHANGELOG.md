@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#7](https://github.com/space-code/transitions/pull/7).
 
 ### Miscellaneous Tasks
+- Update config
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#13](https://github.com/space-code/transitions/pull/13).
 - Automate code formatting and linting with github actions
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#9](https://github.com/space-code/transitions/pull/9).
 - Switch from Makefile to Mise
