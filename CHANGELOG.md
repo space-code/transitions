@@ -21,6 +21,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Switch from Makefile to Mise
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#8](https://github.com/space-code/transitions/pull/8).
 
+### Uncategorized Changes
+- Add renovate.json
+  - Contributed by [@renovate[bot]](https://github.com/renovate[bot]) in Pull Request [#11](https://github.com/space-code/transitions/pull/11).
+
+### New Contributors
+* @renovate[bot] made their first contribution in [#11](https://github.com/space-code/transitions/pull/11)
+
 ## [1.0.1](https://github.com/space-code/transitions/releases/tag/1.0.1)
 
 Released on 2025-02-10. All issues associated with this milestone can be found using this [filter](https://github.com/space-code/transitions/milestones?state=closed&q=1.0.1).
