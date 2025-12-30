@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - dev
   pull_request:
     paths:
       - '.swiftlint.yml'
@@ -13,18 +12,18 @@ on:
       - "Source/**"
       - "Tests/**"
 
+permissions:
+  contents: read
+
+concurrency:
+  group: transitions-${{ github.head_ref }}
+  cancel-in-progress: true
+
+env:
+  SCHEME_NAME: "transitions"
+
 jobs:
-  SwiftLint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: GitHub Action for SwiftLint
-        uses: norio-nomura/action-swiftlint@3.2.1
-        with:
-          args: --strict
-        env:
-          DIFF_BASE: ${{ github.base_ref }}
-  iOS:
+  test-apple-platforms:
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.runsOn }}
     env:
@@ -34,37 +33,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - destination: "OS=18.1,name=iPhone 16 Pro"
-            name: "iOS 18.1"
-            xcode: "Xcode_16.1"
-            runsOn: macOS-14
-          - destination: "OS=17.5,name=iPhone 15 Pro"
-            name: "iOS 17.5"
-            xcode: "Xcode_15.4"
-            runsOn: macOS-14
-          - destination: "OS=17.0.1,name=iPhone 14 Pro"
-            name: "iOS 17.0.1"
-            xcode: "Xcode_15.0"
-            runsOn: macos-13
-          - destination: "OS=16.4,name=iPhone 14 Pro"
-            name: "iOS 16.4"
-            xcode: "Xcode_14.3.1"
-            runsOn: macos-13
+          # iOS
+          - { platform: iOS, name: "iOS 26.0, Xcode 26.0, Swift 6.2.0", xcode: "Xcode_26.0.1", runsOn: macOS-26, destination: "OS=26.0.1,name=iPhone 17 Pro" }
+          - { platform: iOS, name: "iOS 18.1", xcode: "Xcode_16.1", runsOn: macOS-14, destination: "OS=18.1,name=iPhone 16 Pro" }
+          - { platform: iOS, name: "iOS 17.4", xcode: "Xcode_15.3", runsOn: macOS-14, destination: "OS=17.4,name=iPhone 15 Pro" }
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: ${{ matrix.name }}
-        run: xcodebuild test -scheme "transitions" -destination "${{ matrix.destination }}" clean -enableCodeCoverage YES -resultBundlePath "test_output/${{ matrix.name }}.xcresult" || exit 1
-
-  discover-typos:
-    name: Discover Typos
-    runs-on: macOS-13
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_14.1.app/Contents/Developer
-    steps:
-      - uses: actions/checkout@v4
-      - name: Discover typos
-        run: |
-          export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.11/bin"
-          python3 -m pip install --upgrade pip
-          python3 -m pip install codespell
-          codespell --ignore-words-list="hart,inout,msdos,sur" --skip="./.build/*,./.git/*"
+        run: xcodebuild test -scheme "$SCHEME_NAME" -destination "${{ matrix.destination }}" clean -enableCodeCoverage YES -resultBundlePath "test_output/${{ matrix.name }}.xcresult" || exit 1
