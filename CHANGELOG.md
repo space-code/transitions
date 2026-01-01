@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#7](https://github.com/space-code/transitions/pull/7).
 
 ### Miscellaneous Tasks
+- Add conventional-pr.yml for PR validation
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#14](https://github.com/space-code/transitions/pull/14).
 - Update config
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#13](https://github.com/space-code/transitions/pull/13).
 - Automate code formatting and linting with github actions
