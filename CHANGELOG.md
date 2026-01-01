@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#7](https://github.com/space-code/transitions/pull/7).
 
 ### Miscellaneous Tasks
+- Remove dependabot
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#18](https://github.com/space-code/transitions/pull/18).
 - Add release workflow for GitHub Actions
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#15](https://github.com/space-code/transitions/pull/15).
 - Add codeowners
