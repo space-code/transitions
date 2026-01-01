@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#7](https://github.com/space-code/transitions/pull/7).
 
 ### Miscellaneous Tasks
+- Add release workflow for GitHub Actions
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#15](https://github.com/space-code/transitions/pull/15).
+- Add codeowners
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#17](https://github.com/space-code/transitions/pull/17).
+- Add GitHub issue and PR templates
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#16](https://github.com/space-code/transitions/pull/16).
 - Add conventional-pr.yml for PR validation
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#14](https://github.com/space-code/transitions/pull/14).
 - Update config
