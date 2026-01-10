@@ -38,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Contributed by [@renovate[bot]](https://github.com/renovate[bot]) in Pull Request [#11](https://github.com/space-code/transitions/pull/11).
 
 ### New Contributors
-* @renovate[bot] made their first contribution in [#11](https://github.com/space-code/transitions/pull/11)
+* @renovate[bot] made their first contribution in [#19](https://github.com/space-code/transitions/pull/19)
 
 ## [1.0.1](https://github.com/space-code/transitions/releases/tag/1.0.1)
 
