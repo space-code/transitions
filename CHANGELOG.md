@@ -6,10 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 #### 1.x Releases
+- `1.1.x` Releases - [1.1.0](#110)
 - `1.0.x` Releases - [1.0.1](#101) | [1.0.0](#100)
 
 ---
-## [Unreleased]
+
+
+## [1.1.0](https://github.com/space-code/transitions/releases/tag/1.1.0)
+
+Released on 2026-01-18. All issues associated with this milestone can be found using this [filter](https://github.com/space-code/transitions/milestones?state=closed&q=1.1.0).
 
 ### Documentation
 - Update the `Development Setup` section
@@ -69,6 +74,6 @@ Released on 2025-01-13. All issues associated with this milestone can be found u
 ### New Contributors
 * @dependabot[bot] made their first contribution in [#1](https://github.com/space-code/transitions/pull/1)
 
-[unreleased]: https://github.com/space-code/transitions/compare/1.0.1..HEAD
+[1.1.0]: https://github.com/space-code/transitions/compare/1.0.1..1.1.0
 [1.0.1]: https://github.com/space-code/transitions/compare/1.0.0..1.0.1
 
