@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Documentation
+- Update the `Development Setup` section
+  - Documented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#23](https://github.com/space-code/transitions/pull/23).
 - Update `README.md`
   - Documented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#22](https://github.com/space-code/transitions/pull/22).
 
