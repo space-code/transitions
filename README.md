@@ -8,7 +8,6 @@
 <a href="https://swiftpackageindex.com/space-code/transitions"><img alt="Platform Compatibility" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fspace-code%2Ftransitions%2Fbadge%3Ftype%3Dplatforms"/></a> 
 <a href="https://github.com/space-code/transitions"><img alt="CI" src="https://github.com/space-code/transitions/actions/workflows/ci.yml/badge.svg?branch=main"></a>
 <a href="https://github.com/apple/swift-package-manager" alt="transitions on Swift Package Manager" title="transitions on Swift Package Manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" /></a>
-<a href="https://codecov.io/gh/space-code/transitions"><img src="https://codecov.io/gh/space-code/transitions/graph/badge.svg"/></a>
 </p>
 
 ## Description
@@ -297,7 +296,7 @@ We love contributions! Please feel free to help out with this project. If you se
 Bootstrap the development environment:
 
 ```bash
-make bootstrap
+make install
 ```
 
 ## Author
