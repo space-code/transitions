@@ -10,7 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `1.0.x` Releases - [1.0.1](#101) | [1.0.0](#100)
 
 ---
+## [Unreleased]
 
+### Miscellaneous Tasks
+- Update `ci.yml`
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#36](https://github.com/space-code/transitions/pull/36).
 
 ## [1.1.0](https://github.com/space-code/transitions/releases/tag/1.1.0)
 
@@ -74,6 +78,7 @@ Released on 2025-01-13. All issues associated with this milestone can be found u
 ### New Contributors
 * @dependabot[bot] made their first contribution in [#1](https://github.com/space-code/transitions/pull/1)
 
+[unreleased]: https://github.com/space-code/transitions/compare/1.1.0..HEAD
 [1.1.0]: https://github.com/space-code/transitions/compare/1.0.1..1.1.0
 [1.0.1]: https://github.com/space-code/transitions/compare/1.0.0..1.0.1
 
