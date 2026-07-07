@@ -38,6 +38,6 @@ jobs:
           - { platform: iOS, name: "iOS 18.1", xcode: "Xcode_16.1", runsOn: macOS-14, destination: "OS=18.1,name=iPhone 16 Pro" }
           - { platform: iOS, name: "iOS 17.4", xcode: "Xcode_15.3", runsOn: macOS-14, destination: "OS=17.4,name=iPhone 15 Pro" }
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: ${{ matrix.name }}
         run: xcodebuild test -scheme "$SCHEME_NAME" -destination "${{ matrix.destination }}" clean -enableCodeCoverage YES -resultBundlePath "test_output/${{ matrix.name }}.xcresult" || exit 1
